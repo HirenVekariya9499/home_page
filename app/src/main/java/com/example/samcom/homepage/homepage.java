@@ -19,19 +19,60 @@ public class homepage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText( R.string.title_home );
+
+                    homeFragment home=new homeFragment();
+                    FragmentManager managerHome;
+                {
+                    managerHome = getSupportFragmentManager();
+                    managerHome.beginTransaction().replace(R.id.hn,home,home.getTag()).addToBackStack( null ).commit();
+                }
+
+//                mTextMessage.setText( R.string.title_home );
                     return true;
                 case R.id.navigation_favourite:
-                    mTextMessage.setText( R.string.title_favourite );
+
+                    favouriteFragment favourite=new favouriteFragment();
+                    FragmentManager managerFavourite;
+                {
+                    managerFavourite = getSupportFragmentManager();
+                    managerFavourite.beginTransaction().replace(R.id.hn,favourite,favourite.getTag()).addToBackStack( null ).commit();
+                }
+//                    mTextMessage.setText( R.string.title_favourite );
                     return true;
                 case R.id.navigation_cart:
-                    mTextMessage.setText( R.string.title_cart );
+
+                    cartFragment cart=new cartFragment();
+                    FragmentManager managerCart;
+                {
+                    managerCart = getSupportFragmentManager();
+                    managerCart.beginTransaction().replace(R.id.hn,cart,cart.getTag()).addToBackStack( null ).commit();
+                }
+
+//                    mTextMessage.setText( R.string.title_cart );
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText( R.string.title_notifications );
+
+                    notificationFragment notification=new notificationFragment();
+                    FragmentManager managerNotification;
+                {
+                    managerNotification = getSupportFragmentManager();
+                    managerNotification.beginTransaction().replace(R.id.hn,notification,notification.getTag()).addToBackStack( null ).commit();
+                }
+
+
+//                mTextMessage.setText( R.string.title_notifications );
                     return true;
                 case R.id.navigation_profile:
-                    mTextMessage.setText( R.string.title_Profile );
+
+                    userprofileFragment userprofile=new userprofileFragment();
+                    FragmentManager managerUserprofile;
+                {
+                    managerUserprofile = getSupportFragmentManager();
+                    managerUserprofile.beginTransaction().replace(R.id.hn,userprofile,userprofile.getTag()).addToBackStack( null ).commit();
+                }
+
+
+//                mTextMessage.setText( R.string.title_Profile );
                     return true;
             }
             return false;
@@ -43,17 +84,15 @@ public class homepage extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_homepage );
 
-//        homeFragment first=new homeFragment();
-//        FragmentManager manager;
-//
-//        {
-//            manager = getSupportFragmentManager();
-//            manager.beginTransaction()
-//                    .replace( R.id.hn,first,first.getTag() )
-//                    .commit();
-//        }
+        homeFragment home=new homeFragment();
+        FragmentManager managerHome;
+        {
+            managerHome = getSupportFragmentManager();
+            managerHome.beginTransaction().replace(R.id.hn,home,home.getTag()).addToBackStack( null ).commit();
+        }
 
-        mTextMessage = (TextView) findViewById( R.id.message );
+
+//        mTextMessage = (TextView) findViewById( R.id.message );
         BottomNavigationView navigation = (BottomNavigationView) findViewById( R.id.navigation );
         navigation.setOnNavigationItemSelectedListener( mOnNavigationItemSelectedListener );
     }
