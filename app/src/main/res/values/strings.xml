@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Home Page</string>
+    <string name="title_home">Home</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_Profile">Profile</string>
+</resources>
