@@ -35,7 +35,7 @@ public class homepage extends AppCompatActivity {
                     FragmentManager managerFavourite;
                 {
                     managerFavourite = getSupportFragmentManager();
-                    managerFavourite.beginTransaction().replace(R.id.hn,favourite,favourite.getTag()).addToBackStack( null ).commit();
+                    managerFavourite.beginTransaction().replace(R.id.hn,favourite,favourite.getTag()).addToBackStack(null).commit();
                 }
 //                    mTextMessage.setText( R.string.title_favourite );
                     return true;
@@ -88,7 +88,7 @@ public class homepage extends AppCompatActivity {
         FragmentManager managerHome;
         {
             managerHome = getSupportFragmentManager();
-            managerHome.beginTransaction().replace(R.id.hn,home,home.getTag()).addToBackStack( null ).commit();
+            managerHome.beginTransaction().replace(R.id.hn,home,home.getTag()).commit();
         }
 
 
