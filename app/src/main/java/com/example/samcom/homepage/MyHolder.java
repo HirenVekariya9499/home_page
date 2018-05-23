@@ -11,6 +11,6 @@ public class MyHolder extends RecyclerView.ViewHolder {
     public MyHolder(View itemView) {
         super(itemView);
 
-        nametxt= (TextView) itemView.findViewById(R.id.nameTxt);
+        nametxt= (TextView) itemView.findViewById(R.id.itemname);
     }
 }

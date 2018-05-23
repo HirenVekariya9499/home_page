@@ -33,7 +33,7 @@ public class homeFragment extends Fragment {
         RecyclerView rv1= (RecyclerView) rootView.findViewById(R.id.secondrv);
         rv1.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
-        MyAdapter adapter1=new MyAdapter(this.getActivity(),crime);
+        MyAdapterShops adapter1=new MyAdapterShops(this.getActivity(),crime);
         rv1.setAdapter(adapter1);
 
         return rootView;
