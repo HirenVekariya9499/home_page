@@ -24,11 +24,17 @@ public class homeFragment extends Fragment {
 
         View rootView=inflater.inflate(R.layout.fragment_home,container,false);
 
-        RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.crimeRV);
-        rv.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.firstrv);
+        rv.setLayoutManager(new LinearLayoutManager(this.getActivity(),LinearLayoutManager.HORIZONTAL,false));
 
         MyAdapter adapter=new MyAdapter(this.getActivity(),crime);
         rv.setAdapter(adapter);
+
+        RecyclerView rv1= (RecyclerView) rootView.findViewById(R.id.secondrv);
+        rv1.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+
+        MyAdapter adapter1=new MyAdapter(this.getActivity(),crime);
+        rv1.setAdapter(adapter1);
 
         return rootView;
     }
