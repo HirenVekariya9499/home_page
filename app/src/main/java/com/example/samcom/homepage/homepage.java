@@ -31,7 +31,7 @@ public class homepage extends AppCompatActivity {
                     return true;
                 case R.id.navigation_favourite:
 
-                    favouriteFragment favourite=new favouriteFragment();
+                    ShoppageFragment favourite=new ShoppageFragment();
                     FragmentManager managerFavourite;
                 {
                     managerFavourite = getSupportFragmentManager();
