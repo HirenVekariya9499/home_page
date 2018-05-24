@@ -26,12 +26,16 @@ public class homeFragment extends Fragment {
 
         RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.firstrv);
         rv.setLayoutManager(new LinearLayoutManager(this.getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        rv.setNestedScrollingEnabled(false);
+
 
         MyAdapter adapter=new MyAdapter(this.getActivity(),crime);
         rv.setAdapter(adapter);
 
         RecyclerView rv1= (RecyclerView) rootView.findViewById(R.id.secondrv);
         rv1.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        rv1.setNestedScrollingEnabled(false);
+
 
         MyAdapterShops adapter1=new MyAdapterShops(this.getActivity(),crime);
         rv1.setAdapter(adapter1);
