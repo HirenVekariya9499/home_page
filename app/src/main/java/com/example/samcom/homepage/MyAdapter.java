@@ -6,14 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
-    Context c;
-    String[] movies;
+    private List<homeRetro> HomeRetro;
 
-    public MyAdapter(Context c, String[] movies) {
-        this.c = c;
-        this.movies = movies;
+
+
+    public MyAdapter(List<homeRetro> HomeRetro) {
+        this.HomeRetro =HomeRetro;
     }
 
     @Override
@@ -25,12 +27,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-        holder.nametxt.setText(movies[position]);
+        holder.uname.setText(HomeRetro.get(position).getUname());
 
     }
 
     @Override
     public int getItemCount() {
-        return movies.length;
+        return HomeRetro.size();
     }
 }

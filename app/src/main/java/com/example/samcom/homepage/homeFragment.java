@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import java.util.List;
@@ -26,52 +27,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class homeFragment extends Fragment {
 
-    String[] crime={"Blacklist","Crisis","Gotham","Banshee","Breaking Bad"};
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-
-
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl(homeRetroAPI.BASE_URL)
-                .addConverterFactory( GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object
-                .build();
-
-        homeRetroAPI api = retrofit.create(homeRetroAPI.class);
-
-        Call<List<homeRetro>> call = api.getRecommendation();
-        call.enqueue( new Callback<List<homeRetro>>() {
-            @Override
-            public void onResponse(Call<List<homeRetro>> call, Response<List<homeRetro>> response) {
-
-                List<homeRetro> homeRetros = response.body();
-
-//
-//                String[]  = new String[homeRetros.size()];
-//
-//                //looping through all the heroes and inserting the names inside the string array
-//                for (int i = 0; i < homeRetros.size(); i++) {
-//                    heroes[i] = homeRetros.get(i).getName();
-//                }
-
-//                for (homeRetro h: homeRetros){
-//                    Log.d( "uname",h.getUname() );
-//                    Log.d( "password",h.getPassword() );
-//
-//
-//                }
-
-
-            }
-
-            @Override
-            public void onFailure(Call<List<homeRetro>> call, Throwable t) {
-
-            }
-        });
-
-    }
+    private List<homeRetro> HomeRetro;
+    private MyAdapter adapter;
+    private List<homeRetro1> HomeRetro1;
+    private MyAdapterShops adapter1;
 
     @Nullable
     @Override
@@ -79,22 +38,78 @@ public class homeFragment extends Fragment {
 
         View rootView=inflater.inflate(R.layout.fragment_home,container,false);
 
-        RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.firstrv);
+        final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.firstrv);
         rv.setLayoutManager(new LinearLayoutManager(this.getActivity(),LinearLayoutManager.HORIZONTAL,false));
         rv.setNestedScrollingEnabled(false);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl( homeRetroAPI.BASE_URL )
+                .addConverterFactory( GsonConverterFactory.create() ) //Here we are using the GsonConverterFactory to directly convert json data to object
+                .build();
+
+        homeRetroAPI api = retrofit.create( homeRetroAPI.class );
+
+        Call<List<homeRetro>> call = api.getRecommendation();
+
+        call.enqueue( new Callback<List<homeRetro>>() {
+            @Override
+            public void onResponse(Call<List<homeRetro>> call, Response<List<homeRetro>> response) {
+
+                List<homeRetro> homeRetros = response.body();
+
+                    HomeRetro=response.body();
+                    adapter=new MyAdapter( HomeRetro );
+                    rv.setAdapter( adapter );
+            }
+
+            @Override
+            public void onFailure(Call<List<homeRetro>> call, Throwable t) {
+
+            }
+        } );
 
 
-        MyAdapter adapter=new MyAdapter(this.getActivity(),crime);
-        rv.setAdapter(adapter);
 
-        RecyclerView rv1= (RecyclerView) rootView.findViewById(R.id.secondrv);
+        final RecyclerView rv1= (RecyclerView) rootView.findViewById(R.id.secondrv);
         rv1.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         rv1.setNestedScrollingEnabled(false);
+        Retrofit retrofit1 = new Retrofit.Builder()
+                .baseUrl( homeRetroAPI.BASE_URL )
+                .addConverterFactory( GsonConverterFactory.create() ) //Here we are using the GsonConverterFactory to directly convert json data to object
+                .build();
 
+        homeRetroAPI api1 = retrofit1.create( homeRetroAPI.class );
 
-        MyAdapterShops adapter1=new MyAdapterShops(this.getActivity(),crime);
-        rv1.setAdapter(adapter1);
+        Call<List<homeRetro1>> call1 = api1.getRecommendation1();
 
+        call1.enqueue( new Callback<List<homeRetro1>>() {
+            @Override
+            public void onResponse(Call<List<homeRetro1>> call1, Response<List<homeRetro1>> response) {
+
+                List<homeRetro1> homeRetros1 = response.body();
+
+                HomeRetro1=response.body();
+                adapter1=new MyAdapterShops( HomeRetro1 );
+                rv1.setAdapter( adapter1 );
+            }
+
+            @Override
+            public void onFailure(Call<List<homeRetro1>> call, Throwable t) {
+
+            }
+        } );
+
+//
+//        MyAdapter adapter=new MyAdapter(this.getActivity(),crime);
+//        rv.setAdapter(adapter);
+//
+//        RecyclerView rv1= (RecyclerView) rootView.findViewById(R.id.secondrv);
+//        rv1.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+//        rv1.setNestedScrollingEnabled(false);
+//
+//
+//        MyAdapterShops adapter1=new MyAdapterShops(this.getActivity(),crime);
+//        rv1.setAdapter(adapter1);
+//        getRecommendation();
         return rootView;
 
     }

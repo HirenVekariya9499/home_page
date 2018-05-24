@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 public class MyHolderShops extends RecyclerView.ViewHolder {
 
-    TextView nametxt;
+    TextView mnumber;
 
     public MyHolderShops(View itemView) {
         super(itemView);
 
-        nametxt= (TextView) itemView.findViewById(R.id.storename1);
+        mnumber= (TextView) itemView.findViewById(R.id.storename1);
     }
 }
