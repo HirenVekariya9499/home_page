@@ -15,4 +15,11 @@ public interface homeRetroAPI {
 
     @GET("stores_api.php?stores=stores")
     Call<List<homeRetro1>> getRecommendation1();
+
+    @GET("stores_api.php?stores=stores")
+    Call<List<favouriteRetro>> getRecommendation2();
+
+    @GET("recommendation_api.php?recommendation=recommendation")
+    Call<List<favouriteRetro1>> getRecommendation3();
+
 }
