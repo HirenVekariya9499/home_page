@@ -2,19 +2,28 @@ package com.example.samcom.homepage;
 
 public class homeRetro1 {
 
-    String uname;
-    String password;
-    String mnumber;
+    String imageurl;
+    String storename;
+    String location;
+    String status;
 
-    public String getMnumber() {
-        return mnumber;
+    public String getImageurl() {
+        return imageurl;
     }
 
-    public String getUname() {
-        return uname;
+    public String getStorename() {
+        return storename;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLocation() {
+        return location;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+
+
+
 }

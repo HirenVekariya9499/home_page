@@ -10,9 +10,9 @@ public interface homeRetroAPI {
     String BASE_URL = "https://billcool.000webhostapp.com/samcom/";
 
 
-    @GET("login_api.php?login=login")
+    @GET("recommendation_api.php?recommendation=recommendation")
     Call<List<homeRetro>> getRecommendation();
 
-    @GET("login_api.php?login=login")
+    @GET("stores_api.php?stores=stores")
     Call<List<homeRetro1>> getRecommendation1();
 }

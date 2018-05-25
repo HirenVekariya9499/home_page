@@ -1,6 +1,7 @@
 package com.example.samcom.homepage;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -36,7 +37,7 @@ public class homeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView=inflater.inflate(R.layout.fragment_home,container,false);
+        final View rootView=inflater.inflate(R.layout.fragment_home,container,false);
 
         final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.firstrv);
         rv.setLayoutManager(new LinearLayoutManager(this.getActivity(),LinearLayoutManager.HORIZONTAL,false));
@@ -57,7 +58,8 @@ public class homeFragment extends Fragment {
                 List<homeRetro> homeRetros = response.body();
 
                     HomeRetro=response.body();
-                    adapter=new MyAdapter( HomeRetro );
+                Context context = null;
+                adapter=new MyAdapter( HomeRetro, rootView);
                     rv.setAdapter( adapter );
             }
 
@@ -88,7 +90,7 @@ public class homeFragment extends Fragment {
                 List<homeRetro1> homeRetros1 = response.body();
 
                 HomeRetro1=response.body();
-                adapter1=new MyAdapterShops( HomeRetro1 );
+                adapter1=new MyAdapterShops( HomeRetro1,rootView);
                 rv1.setAdapter( adapter1 );
             }
 

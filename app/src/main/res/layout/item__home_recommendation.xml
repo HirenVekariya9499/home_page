@@ -25,14 +25,23 @@
                 android:scaleType="fitXY"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
-                android:src="@drawable/food">
+                >
 
             </ImageView>
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#80000000"
+                android:layout_alignTop="@+id/imageView"
+                android:orientation="vertical"
+                >
+
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/text"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_alignBottom="@+id/imageView"
                 android:background="#80000000"
                 android:orientation="vertical">

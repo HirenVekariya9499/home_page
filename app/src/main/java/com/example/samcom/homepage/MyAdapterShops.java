@@ -6,13 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class MyAdapterShops extends RecyclerView.Adapter<MyHolderShops> {
 
     private List<homeRetro1> HomeRetro1;
-    public MyAdapterShops(List<homeRetro1> HomeRetro1) {
+    View view;
+
+    public MyAdapterShops(List<homeRetro1> HomeRetro1,View view)
+    {
         this.HomeRetro1 =HomeRetro1;
+        this.view=view;
     }
 
     @Override
@@ -24,7 +30,15 @@ public class MyAdapterShops extends RecyclerView.Adapter<MyHolderShops> {
 
     @Override
     public void onBindViewHolder(MyHolderShops holder, int position) {
-        holder.mnumber.setText(HomeRetro1.get(position).getMnumber());
+
+        Glide.with(view)
+                .load(HomeRetro1.get(position).getImageurl())
+                .into(holder.imageurl);
+
+
+        holder.storename.setText(HomeRetro1.get(position).getStorename());
+        holder.location.setText(HomeRetro1.get(position).getLocation());
+        holder.status.setText(HomeRetro1.get(position).getStatus());
 
     }
 
