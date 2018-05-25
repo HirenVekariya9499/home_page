@@ -6,9 +6,19 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -17,6 +27,51 @@ import android.view.ViewGroup;
 public class homeFragment extends Fragment {
 
     String[] crime={"Blacklist","Crisis","Gotham","Banshee","Breaking Bad"};
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate( savedInstanceState );
+
+
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(homeRetroAPI.BASE_URL)
+                .addConverterFactory( GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object
+                .build();
+
+        homeRetroAPI api = retrofit.create(homeRetroAPI.class);
+
+        Call<List<homeRetro>> call = api.getRecommendation();
+        call.enqueue( new Callback<List<homeRetro>>() {
+            @Override
+            public void onResponse(Call<List<homeRetro>> call, Response<List<homeRetro>> response) {
+
+                List<homeRetro> homeRetros = response.body();
+
+//
+//                String[]  = new String[homeRetros.size()];
+//
+//                //looping through all the heroes and inserting the names inside the string array
+//                for (int i = 0; i < homeRetros.size(); i++) {
+//                    heroes[i] = homeRetros.get(i).getName();
+//                }
+
+//                for (homeRetro h: homeRetros){
+//                    Log.d( "uname",h.getUname() );
+//                    Log.d( "password",h.getPassword() );
+//
+//
+//                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<homeRetro>> call, Throwable t) {
+
+            }
+        });
+
+    }
 
     @Nullable
     @Override
@@ -41,5 +96,6 @@ public class homeFragment extends Fragment {
         rv1.setAdapter(adapter1);
 
         return rootView;
+
     }
 }
