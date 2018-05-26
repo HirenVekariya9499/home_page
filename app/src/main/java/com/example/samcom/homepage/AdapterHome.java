@@ -32,6 +32,7 @@ public class AdapterHome extends RecyclerView.Adapter<HolderHome> {
     public void onBindViewHolder(HolderHome holder, int position) {
         holder.itemname.setText(HomeRetro.get(position).getItemname());
         holder.storename.setText(HomeRetro.get(position).getStorename());
+        holder.price.setText(HomeRetro.get(position).getPrice());
 
 
         Glide.with(view)

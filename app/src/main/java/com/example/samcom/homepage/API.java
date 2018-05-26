@@ -22,4 +22,6 @@ public interface API {
     @GET("recommendation_api.php?recommendation=recommendation")
     Call<List<RetroFavourite1>> getRecommendation3();
 
+    @GET("login_api.php?login=login")
+    Call<List<RetroUserProfile>> getRecommendation4();
 }

@@ -38,7 +38,7 @@
                 >
 
             </LinearLayout>
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -57,16 +57,28 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/priceh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="10dp"
+                    android:textColor="#fff"
+                    android:textSize="35dp"
+                    />
+
+                <TextView
                     android:id="@+id/storename"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
                     android:text="Store Name"
+                    android:layout_below="@+id/itemname"
                     android:textColor="#fff"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

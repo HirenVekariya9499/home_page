@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class HolderHome extends RecyclerView.ViewHolder {
 
-    TextView itemname,storename;
+    TextView itemname,storename,price;
     ImageView imageurl;
     public HolderHome(View itemView) {
         super(itemView);
@@ -15,6 +15,7 @@ public class HolderHome extends RecyclerView.ViewHolder {
         imageurl= (ImageView) itemView.findViewById(R.id.imageView);
         itemname= (TextView) itemView.findViewById(R.id.itemname);
         storename= (TextView) itemView.findViewById(R.id.storename);
+        price= (TextView) itemView.findViewById(R.id.priceh);
 
 
     }
