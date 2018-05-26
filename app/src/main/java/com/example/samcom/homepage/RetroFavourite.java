@@ -1,6 +1,6 @@
 package com.example.samcom.homepage;
 
-public class favouriteRetro {
+public class RetroFavourite {
 
     String storename;
 

@@ -5,21 +5,21 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface homeRetroAPI {
+public interface API {
 
     String BASE_URL = "https://billcool.000webhostapp.com/samcom/";
 
 
     @GET("recommendation_api.php?recommendation=recommendation")
-    Call<List<homeRetro>> getRecommendation();
+    Call<List<RetroHome>> getRecommendation();
 
     @GET("stores_api.php?stores=stores")
-    Call<List<homeRetro1>> getRecommendation1();
+    Call<List<RetroHome1>> getRecommendation1();
 
     @GET("stores_api.php?stores=stores")
-    Call<List<favouriteRetro>> getRecommendation2();
+    Call<List<RetroFavourite>> getRecommendation2();
 
     @GET("recommendation_api.php?recommendation=recommendation")
-    Call<List<favouriteRetro1>> getRecommendation3();
+    Call<List<RetroFavourite1>> getRecommendation3();
 
 }

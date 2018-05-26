@@ -1,6 +1,6 @@
 package com.example.samcom.homepage;
 
-public class favouriteRetro1 {
+public class RetroFavourite1 {
 
     String itemname,price;
 

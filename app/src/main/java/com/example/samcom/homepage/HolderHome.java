@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MyHolder extends RecyclerView.ViewHolder {
+public class HolderHome extends RecyclerView.ViewHolder {
 
     TextView itemname,storename;
     ImageView imageurl;
-    public MyHolder(View itemView) {
+    public HolderHome(View itemView) {
         super(itemView);
 
         imageurl= (ImageView) itemView.findViewById(R.id.imageView);

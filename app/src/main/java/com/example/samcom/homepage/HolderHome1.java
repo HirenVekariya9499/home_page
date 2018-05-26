@@ -5,12 +5,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MyHolderShops extends RecyclerView.ViewHolder {
+public class HolderHome1 extends RecyclerView.ViewHolder {
 
     TextView storename,location,status;
     ImageView imageurl;
 
-    public MyHolderShops(View itemView) {
+    public HolderHome1(View itemView) {
         super(itemView);
 
         imageurl= (ImageView) itemView.findViewById(R.id.imageView1);

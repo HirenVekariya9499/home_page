@@ -1,6 +1,5 @@
 package com.example.samcom.homepage;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,26 +9,26 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class MyAdapterShops extends RecyclerView.Adapter<MyHolderShops> {
+public class AdapterHome1 extends RecyclerView.Adapter<HolderHome1> {
 
-    private List<homeRetro1> HomeRetro1;
+    private List<RetroHome1> HomeRetro1;
     View view;
 
-    public MyAdapterShops(List<homeRetro1> HomeRetro1,View view)
+    public AdapterHome1(List<RetroHome1> HomeRetro1, View view)
     {
         this.HomeRetro1 =HomeRetro1;
         this.view=view;
     }
 
     @Override
-    public MyHolderShops onCreateViewHolder(ViewGroup parent, int viewType) {
+    public HolderHome1 onCreateViewHolder(ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate( R.layout.item_home_shops,parent,false);
 
-        return new MyHolderShops(v);
+        return new HolderHome1(v);
     }
 
     @Override
-    public void onBindViewHolder(MyHolderShops holder, int position) {
+    public void onBindViewHolder(HolderHome1 holder, int position) {
 
         Glide.with(view)
                 .load(HomeRetro1.get(position).getImageurl())
