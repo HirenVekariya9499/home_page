@@ -5,7 +5,7 @@ public class RetroHome1 {
     String imageurl;
     String storename;
     String location;
-    String status;
+//    String status;
 
     public String getImageurl() {
         return imageurl;
@@ -19,9 +19,9 @@ public class RetroHome1 {
         return location;
     }
 
-    public String getStatus() {
-        return status;
-    }
+//    public String getStatus() {
+//        return status;
+//    }
 
 
 

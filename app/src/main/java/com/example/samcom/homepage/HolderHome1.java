@@ -16,7 +16,7 @@ public class HolderHome1 extends RecyclerView.ViewHolder {
         imageurl= (ImageView) itemView.findViewById(R.id.imageView1);
         storename= (TextView) itemView.findViewById(R.id.storename1);
         location= (TextView) itemView.findViewById(R.id.location);
-        status= (TextView) itemView.findViewById(R.id.status);
+//        status= (TextView) itemView.findViewById(R.id.status);
 
     }
 }

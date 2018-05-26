@@ -37,7 +37,7 @@ public class AdapterHome1 extends RecyclerView.Adapter<HolderHome1> {
 
         holder.storename.setText(HomeRetro1.get(position).getStorename());
         holder.location.setText(HomeRetro1.get(position).getLocation());
-        holder.status.setText(HomeRetro1.get(position).getStatus());
+//        holder.status.setText(HomeRetro1.get(position).getStatus());
 
     }
 
