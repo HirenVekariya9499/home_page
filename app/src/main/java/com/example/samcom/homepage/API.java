@@ -17,8 +17,11 @@ public interface API {
     @GET("stores_api.php?stores=stores")
     Call<List<RetroHome1>> getRecommendation1();
 
+    @GET("stores_api.php?stores=stores")
+    Call<List<RetroFavourite>> getRecommendation2();
+
     @GET("items_api.php?{id}")
-    Call<List<RetroFavourite>> getRecommendation2(@Path("id") int id);
+    Call<List<RetroFavourite1>> getItemDetails(@Path("id") int id);
 
     @GET("recommendation_api.php?recommendation=recommendation")
     Call<List<RetroFavourite1>> getRecommendation3();
