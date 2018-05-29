@@ -5,7 +5,16 @@ public class RetroHome1 {
     String imageurl;
     String storename;
     String location;
-//    String status;
+    int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    //    String status;
 
     public String getImageurl() {
         return imageurl;

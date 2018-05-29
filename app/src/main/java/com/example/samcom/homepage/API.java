@@ -4,6 +4,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface API {
 
@@ -16,8 +17,8 @@ public interface API {
     @GET("stores_api.php?stores=stores")
     Call<List<RetroHome1>> getRecommendation1();
 
-    @GET("stores_api.php?stores=stores")
-    Call<List<RetroFavourite>> getRecommendation2();
+    @GET("items_api.php?{id}")
+    Call<List<RetroFavourite>> getRecommendation2(@Path("id") int id);
 
     @GET("recommendation_api.php?recommendation=recommendation")
     Call<List<RetroFavourite1>> getRecommendation3();

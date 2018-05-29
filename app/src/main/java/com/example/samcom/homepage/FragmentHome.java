@@ -5,14 +5,19 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
+import okhttp3.internal.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,6 +30,7 @@ public class FragmentHome extends Fragment {
     private AdapterHome adapter;
     private List<RetroHome1> HomeRetro1;
     private AdapterHome1 adapter1;
+    CardView cardView;
 
     @Nullable
     @Override
@@ -35,6 +41,19 @@ public class FragmentHome extends Fragment {
         final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.firstrv);
         rv.setLayoutManager(new LinearLayoutManager(this.getActivity(),LinearLayoutManager.HORIZONTAL,false));
         rv.setNestedScrollingEnabled(false);
+
+        CardView cardView=(CardView)rootView.findViewById(R.id.card);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new tasks();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.firstrvr, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl( API.BASE_URL )
                 .addConverterFactory( GsonConverterFactory.create() ) //Here we are using the GsonConverterFactory to directly convert json data to object
@@ -82,6 +101,11 @@ public class FragmentHome extends Fragment {
 
                 List<RetroHome1> homeRetros1 = response.body();
 
+                int userid=response.body().get(0).getId();
+                Log.e("TAG","id" +userid);
+
+                Bundle bundle=new Bundle();
+                bundle.putString("userid", String.valueOf(userid));
                 HomeRetro1=response.body();
                 adapter1=new AdapterHome1( HomeRetro1,rootView);
                 rv1.setAdapter( adapter1 );
