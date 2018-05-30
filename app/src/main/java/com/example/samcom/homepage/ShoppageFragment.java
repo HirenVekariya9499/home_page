@@ -255,7 +255,7 @@ public class ShoppageFragment extends Fragment  {
 
         @Override
         public void onBindViewHolder(@NonNull RViewHolder rViewHolder, int position) {
-            rViewHolder.xCardView.setTag(contacts.get(position));
+           // rViewHolder.xCardView.setTag(contacts.get(position));
         }
 
         @Override
