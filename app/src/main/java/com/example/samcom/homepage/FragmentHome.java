@@ -61,7 +61,7 @@ public class FragmentHome extends Fragment {
                 List<RetroHome> homeRetros = response.body();
 
                 HomeRetro = response.body();
-                Context context = null;
+//                Context context = null;
                 adapter = new AdapterHome( HomeRetro, rootView );
                 rv.setAdapter( adapter );
             }
@@ -78,21 +78,21 @@ public class FragmentHome extends Fragment {
         rv1.setNestedScrollingEnabled( false );
 
 
-        card = card.findViewById( R.id.card );
-        card.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                FragmentFavourite home = new FragmentFavourite();
-//                Bundle bundle=new Bundle();
-//                bundle.putString("id", String.valueOf( HomeRetro1.get( getId()) ) );
-//                setArguments( bundle );
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace( R.id.hn, home, home.getTag() ).commit();
-
-            }
-        } );
+//        card = card.findViewById( R.id.card );
+//        card.setOnClickListener( new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                FragmentFavourite home = new FragmentFavourite();
+////                Bundle bundle=new Bundle();
+////                bundle.putString("id", String.valueOf( HomeRetro1.get( getId()) ) );
+////                setArguments( bundle );
+//                FragmentManager manager = getFragmentManager();
+//                FragmentTransaction transaction = manager.beginTransaction();
+//                transaction.replace( R.id.hn, home, home.getTag() ).commit();
+//
+//            }
+//        } );
 
 
         Retrofit retrofit1 = new Retrofit.Builder()
@@ -112,10 +112,14 @@ public class FragmentHome extends Fragment {
 
                 //sending parameters
                 int userid = response.body().get( 0 ).getId();
-                Log.e( "TAG", "id" + userid );
-                Bundle bundle = new Bundle();
-                bundle.putString( "userid", String.valueOf( userid ) );
-                setArguments( bundle );
+                Log.e( "TAG", "senderid :" + userid );
+
+                FragmentFavourite second=new FragmentFavourite();
+                Bundle bundle=new Bundle();
+                bundle.putString("name","India" );
+                second.setArguments(bundle);
+                FragmentManager manager=getFragmentManager();
+                manager.beginTransaction().commit();
                 //
 
                 HomeRetro1 = response.body();
