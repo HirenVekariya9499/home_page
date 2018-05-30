@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class notificationFragment extends Fragment {
+public class FragmentNotification extends Fragment {
 
 
-    public notificationFragment() {
+    public FragmentNotification() {
         // Required empty public constructor
     }
 

@@ -11,5 +11,5 @@ public interface homeRetroAPI {
 
 
     @GET("login_api.php?login=login")
-    Call<List<homeRetro>> getRecommendation();
+    Call<List<RetroHome>> getRecommendation();
 }

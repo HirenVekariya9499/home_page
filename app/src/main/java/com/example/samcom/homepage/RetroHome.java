@@ -1,10 +1,10 @@
 package com.example.samcom.homepage;
 
-public class homeRetro {
+public class RetroHome {
 
     String uname;
 
-    public homeRetro(String uname, String password) {
+    public RetroHome(String uname, String password) {
         this.uname = uname;
         this.password = password;
     }

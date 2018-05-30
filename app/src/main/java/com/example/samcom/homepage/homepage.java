@@ -20,7 +20,7 @@ public class homepage extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
 
-                    homeFragment home=new homeFragment();
+                    FragmentHome home=new FragmentHome();
                     FragmentManager managerHome;
                 {
                     managerHome = getSupportFragmentManager();
@@ -31,7 +31,7 @@ public class homepage extends AppCompatActivity {
                     return true;
                 case R.id.navigation_favourite:
 
-                    favouriteFragment favourite=new favouriteFragment();
+                    FragmentFavourite favourite=new FragmentFavourite();
                     FragmentManager managerFavourite;
                 {
                     managerFavourite = getSupportFragmentManager();
@@ -52,7 +52,7 @@ public class homepage extends AppCompatActivity {
                     return true;
                 case R.id.navigation_notifications:
 
-                    notificationFragment notification=new notificationFragment();
+                    FragmentNotification notification=new FragmentNotification();
                     FragmentManager managerNotification;
                 {
                     managerNotification = getSupportFragmentManager();
@@ -64,7 +64,7 @@ public class homepage extends AppCompatActivity {
                     return true;
                 case R.id.navigation_profile:
 
-                    userprofileFragment userprofile=new userprofileFragment();
+                    FragmentUserProfile userprofile=new FragmentUserProfile();
                     FragmentManager managerUserprofile;
                 {
                     managerUserprofile = getSupportFragmentManager();
@@ -84,7 +84,7 @@ public class homepage extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_homepage );
 
-        homeFragment home=new homeFragment();
+        FragmentHome home=new FragmentHome();
         FragmentManager managerHome;
         {
             managerHome = getSupportFragmentManager();
