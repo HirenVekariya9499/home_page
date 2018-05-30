@@ -41,7 +41,7 @@ public class homepage extends AppCompatActivity {
                     return true;
                 case R.id.navigation_cart:
 
-                    ShoppageFragment cart=new ShoppageFragment();
+                    FragmentCart cart=new FragmentCart();
                     FragmentManager managerCart;
                 {
                     managerCart = getSupportFragmentManager();
