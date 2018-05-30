@@ -45,10 +45,15 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:23.3.0'
+    //picasso dependency
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.google.code.gson:gson:2.8.0'
+
+   //elegant button
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
 
 }
