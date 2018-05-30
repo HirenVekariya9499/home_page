@@ -6,11 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class homeFragment extends Fragment {
+public class FragmentHome extends Fragment {
 
     String[] crime={"Blacklist","Crisis","Gotham","Banshee","Breaking Bad"};
 
@@ -40,12 +38,12 @@ public class homeFragment extends Fragment {
 
         homeRetroAPI api = retrofit.create(homeRetroAPI.class);
 
-        Call<List<homeRetro>> call = api.getRecommendation();
-        call.enqueue( new Callback<List<homeRetro>>() {
+        Call<List<RetroHome>> call = api.getRecommendation();
+        call.enqueue( new Callback<List<RetroHome>>() {
             @Override
-            public void onResponse(Call<List<homeRetro>> call, Response<List<homeRetro>> response) {
+            public void onResponse(Call<List<RetroHome>> call, Response<List<RetroHome>> response) {
 
-                List<homeRetro> homeRetros = response.body();
+                List<RetroHome> homeRetros = response.body();
 
 //
 //                String[]  = new String[homeRetros.size()];
@@ -55,7 +53,7 @@ public class homeFragment extends Fragment {
 //                    heroes[i] = homeRetros.get(i).getName();
 //                }
 
-//                for (homeRetro h: homeRetros){
+//                for (RetroHome h: homeRetros){
 //                    Log.d( "uname",h.getUname() );
 //                    Log.d( "password",h.getPassword() );
 //
@@ -66,7 +64,7 @@ public class homeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<homeRetro>> call, Throwable t) {
+            public void onFailure(Call<List<RetroHome>> call, Throwable t) {
 
             }
         });
